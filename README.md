@@ -1,4 +1,4 @@
-### spring이 지원하는 기술
+#spring이 지원하는 기술
 ---
 # IoC/DI
  1. IOC (Inversion of Control) : 제어의 역전
