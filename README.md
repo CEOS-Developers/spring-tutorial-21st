@@ -3,6 +3,7 @@
 # +IoC/DI
  1. IOC (Inversion of Control) : 제어의 역전
     - 객체의 생성과 관리를 개발자가 아닌 Spring 프레임워크가 담당한다!!
+      
     +IoC 컨테이너의 작동 방식
       - 객체를 Class로 정의
       - 객체 간의 연관성 지정: Spring 설정파일 (Config) 또는 어노테이션을 통해 객체가 어떻게 연결될지 (의존성 주입) 지정
