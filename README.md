@@ -1,6 +1,6 @@
-#spring이 지원하는 기술
+### spring이 지원하는 기술
 ---
-# IoC/DI
+##### IoC/DI
  1. IOC (Inversion of Control) : 제어의 역전
     - 객체의 생성과 관리를 개발자가 아닌 Spring 프레임워크가 담당한다!!
       
@@ -12,8 +12,8 @@
  2. DI (Dependency Injection) : 의존성 주입
    - 객체가 직접 코드에서 생성한 것이 아니라, 이미 설정된 속성을 통해 필요한 객체(종속성)를 주입받는 방식
    > 
-# AOP 
-# PSA
+##### AOP 
+##### PSA
 
 
 ### **Spring Bean이란?** Bean 의 라이프사이클은 어떻게 되는지 조사해요
