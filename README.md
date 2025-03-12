@@ -41,7 +41,7 @@
   - PSA란 환경의 변화와 관계없이 일관된 방식의 기술로의 접근 환경을 제공하는 추상화 구조
   - Spring Web MVC, Spring Transaction, Spring Cache 등
 
-### **Spring Bean이란?** Bean 의 라이프사이클은 어떻게 되는지 조사해요
+### **Spring Bean이란?**
   - Spring 컨테이너가 관리하는 자바의 객체
   - 객체가 의존관계를 등록할 때 Spring 컨테이너에서 빈을 찾고, 그 빈과 의존성을 만든다.
   ---
@@ -53,8 +53,9 @@
      
   2️⃣ @Configuration -> @Bean
      : Spring 설정 파일에 @Configuration 어노테이션 추가 -> @Bean으로 지정
-  ---
+  ---  
   ## Spring Bean의 생명주기
+  
    스프링 IoC 컨테이너 생성 → 스프링 빈 생성 → 의존관계 주입 → 초기화 콜백 메소드 호출 → 사용 → 소멸 전 콜백 메소드 호출 → 스프링 종료
   
 ### **스프링 어노테이션**
