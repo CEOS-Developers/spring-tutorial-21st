@@ -1,4 +1,4 @@
-### spring이 지원하는 기술
+### Spring이 지원하는 기술
 ---
 #### IoC/DI
  1. IOC (Inversion of Control) : 제어의 역전
@@ -11,17 +11,68 @@
 
  2. DI (Dependency Injection) : 의존성 주입
    - 객체가 직접 코드에서 생성한 것이 아니라, 이미 설정된 속성을 통해 필요한 객체(종속성)를 주입받는 방식
-   > 
-#### AOP 
-#### PSA
+   1️⃣ 생성자 주입 (권장)
+     @Service
+     public class UserService {
 
+    private UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+       }
+   }
+   2️⃣ Setter 주입
+   3️⃣ 필드 주입
+      ( 2️⃣,3️⃣은 의존성이 없어도 객체가 생성될 수 있어 권장하지 않음!)
+
+#### AOP (Aspect Oriented Programming)
+  - 핵심 기능과 부가 기능을 분리하는 방식
+  - 객체지향프로그래밍(OOP)는 공통적인 부가 기능의 중복 코드 발생 --> 이를 해결하기 위함
+    
+#### PSA (Portable Service Abstraction)
+  > Service Abstraction (서비스 추상화)
+  >> 추상화 계층을 이용해서 특정 기술의 구현부를 숨기고 개발자에게 편의성을 제공해 주는 것
+
+  - PSA란 환경의 변화와 관계없이 일관된 방식의 기술로의 접근 환경을 제공하는 추상화 구조
+  - Spring Web MVC, Spring Transaction, Spring Cache 등
 
 ### **Spring Bean이란?** Bean 의 라이프사이클은 어떻게 되는지 조사해요
-
+  - Spring 컨테이너가 관리하는 자바의 객체
+  - 객체가 의존관계를 등록할 때 Spring 컨테이너에서 빈을 찾고, 그 빈과 의존성을 만든다.
+  ---
+  ## Bean을 등록하는 방법
+  1️⃣ @Component -> @Autowired 
+     : Spring이 자동으로 클래스를 스캔하고 Bean 등록
+     : 다른 클래스에서는 @Autowired 어노테이션을 통해 주입받아 사용
+  2️⃣ @Configuration -> @Bean
+     : Spring 설정 파일에 @Configuration 어노테이션 추가 -> @Bean으로 지정
+  ---
+  ## Spring Bean의 생명주기
+   스프링 IoC 컨테이너 생성 → 스프링 빈 생성 → 의존관계 주입 → 초기화 콜백 메소드 호출 → 사용 → 소멸 전 콜백 메소드 호출 → 스프링 종료
+  
 ### **스프링 어노테이션**
+  - 코드 사이에 특별한 의미, 기능을 수행하도록 하는 기술 (@)
+    
+  - @SpringBootApplication
+    : Spring Boot을 자동으로 실행시켜주는 어노테이션
+    
+  - @ComponentScan
+    : @Component, @Service, @Repository, @Controller, @Configuration이 붙은 빈들을 찾아서
+Context에 빈을 등록해 주는 어노테이션 (@SpringBootApplication에 포함)
 
-- 어노테이션이란 무엇이며, Java에서 어떻게 구현될까요?
-- 스프링에서 어노테이션을 통해 Bean을 등록할 때, 어떤 일련의 과정이 일어나는지 탐구해보세요.
-- `@ComponentScan` 과 같은 어노테이션을 사용하여 스프링이 컴포넌트를 어떻게 탐색하고 찾는지의 과정을 깊게 파헤쳐보세요.
+   - @RequestMapping
+     : 어떤 URL을 어떤 메소드가 처리할지 매핑
+     : GET/POST/PUT/PATCH/DELETE 정의
+
+   - @Transactional
+     : 메서드 실행이 정상적으로 완료되면 자동 커밋, 하나라도 실패히면 자동 롤백
 
 ### **단위 테스트와 통합 테스트**
+  1. 단위테스트 (Unit Test)
+     - 개별 메서드나 함수, 클래스 등 작은 기능 단위를 대상으로 함
+     - 코드의 특정 부분이 정확하게 동작하는지 확인
+     - JUnit 사용
+       
+  2. 통합테스트 (Integration Test)
+     - 전체 시스템이나 주요 컴포넌트들이 함께 어떻게 작동하는지를 검증하는데 초점을 둠
+     - 실제 환경과 가까운 조건에서 여러 컴포넌트의 상호작용 검증
