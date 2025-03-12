@@ -11,7 +11,9 @@
 
  2. DI (Dependency Injection) : 의존성 주입
    - 객체가 직접 코드에서 생성한 것이 아니라, 이미 설정된 속성을 통해 필요한 객체(종속성)를 주입받는 방식
+     
    1️⃣ 생성자 주입 (권장)
+
      @Service
      public class UserService {
 
@@ -21,8 +23,11 @@
         this.userRepository = userRepository;
        }
    }
+   
    2️⃣ Setter 주입
+   
    3️⃣ 필드 주입
+   
       ( 2️⃣,3️⃣은 의존성이 없어도 객체가 생성될 수 있어 권장하지 않음!)
 
 #### AOP (Aspect Oriented Programming)
@@ -41,9 +46,11 @@
   - 객체가 의존관계를 등록할 때 Spring 컨테이너에서 빈을 찾고, 그 빈과 의존성을 만든다.
   ---
   ## Bean을 등록하는 방법
+  
   1️⃣ @Component -> @Autowired 
      : Spring이 자동으로 클래스를 스캔하고 Bean 등록
      : 다른 클래스에서는 @Autowired 어노테이션을 통해 주입받아 사용
+     
   2️⃣ @Configuration -> @Bean
      : Spring 설정 파일에 @Configuration 어노테이션 추가 -> @Bean으로 지정
   ---
