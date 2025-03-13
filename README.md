@@ -22,8 +22,8 @@
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-       }
-   }
+       } 
+      }
    
    2️⃣ Setter 주입
    
@@ -48,6 +48,9 @@
 ### **Spring Bean이란?**
   - Spring 컨테이너가 관리하는 자바의 객체
   - 객체가 의존관계를 등록할 때 Spring 컨테이너에서 빈을 찾고, 그 빈과 의존성을 만든다.
+
+  - 스프링에서 bean 생성시 별다른 설정이 없으면 싱글톤 적용
+  - 스프링은 컨테이너를 통해 직접 싱글톤 객체를 생성하고 관리하는데,요청이 들어올 때마다 매번 객체를 생성하지 않고, 이미 만들어진 객체를 공유함
   ---
   ## Bean을 등록하는 방법
   
@@ -86,6 +89,13 @@ Context에 빈을 등록해 주는 어노테이션 (@SpringBootApplication에 �
 
    - @Transactional
      : 메서드 실행이 정상적으로 완료되면 자동 커밋, 하나라도 실패히면 자동 롤백
+
+   - @RestController: @Controller + @ResponseBody
+                    : JSON 형식의 데이터나 문자열 등을 반환할 때, 더 간단하게 사용
+
+     @Repository: DAO 역할을 하는 클래스에 사용
+     
+     @Service: 비즈니스 로직을 담당하는 클래스에 사용  
 
 
 ### **단위 테스트와 통합 테스트**
